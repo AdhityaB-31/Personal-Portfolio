@@ -11,7 +11,6 @@
     <div id="header">
         <div class="container">
             <nav>
-                <img src="images/" alt="" class="logo">
                 <ul id="sidemenu">
                     <li><a href="#header">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -20,6 +19,8 @@
                     <li><a href="#contact">Contact</a></li>
                     <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
                 </ul>
+                <img src="images/logo.png" alt="" class="logo">
+                
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
@@ -33,27 +34,36 @@
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
-                    <img src="images/adhitya.png" alt="">
+                    <img src="images/adhi.png" alt="">
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.<br>
-                         Voluptatum fugiat adipisci aut quasi! Eum, nam repellendus<br>
-                          excepturi illo nisi vel sunt itaque, <br>
-                          architecto neque similique dolor delectus ad velit ex?</p>
+                    <p><span class="space">_____</span>Hi, I am Adhitya. Persuing my UG degree of B.Tech Information Technology in Manakula Vinayagar Institute of Technology, Puducherry.  As a IT student I gain a knowledge about domains like Software Engineering, Database Management and so on.  In addition I gain a knowledge about Website Development by my own interest.  In recent time, I am studying about Core Java for develope my coding skill.  I would like to watch movies in my free time.</p>
 
                           <div class="tab-titles">
                             <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
                             <p class="tab-links" onclick="opentab('Education')">Education</p>
+                            <p class="tab-links" onclick="opentab('Certifications')">Certifications</p>
                           </div>
                           <div class="tab-contents active-tab" id="Skills">
                             <ul>
-                                <li><span>Front-End Developer</span><br>Web Development</li>
+                                <li><span>Programming Language</span><br><p>Java</p><p>C++</p><p>HTML & CSS</p></li>
+                                <li><span>Communication</span><br><p>English</p><p>Tamil</p></li>
+                                <li><span>Key Strength</span><br><p>Leadership </p><p>Good Communication Skill </p><p>Fast Typer</p><p>Teamwork</p><p>Dedication</p></li>
                             </ul>
                           </div>
                           <div class="tab-contents" id="Education">
                             <ul>
-                                <li><span>2022-2026</span><br>B.Tech from MVIT Puducherry</li>
+                                <li><span>2022-2026</span><br><p>B.Tech (Information Technology) from MVIT Puducherry.</p></li>
+                                <li><span>2020-2022</span><br><p>HSE in Computer Science from VHSS,Sedarapet Puducherry.</p></li>
+                                <!-- <li><span>2020</span><br><p>SSLC from DOHS,Thondamanatham Puducherry.</p></li> -->
+                            </ul>
+                          </div>
+                          <div class="tab-contents" id="Certifications">
+                            <ul>
+                                <li><span>Full-Stack Development</span> By NoviTech. </li><a href="images/Full_Stack_Development.pdf" download class="btn1">Certificate</a><br>
+                                <li><br><span>Front-End Developer</span> Internship in Askan Technologies</li><a href="images/Web_Developer_Internship.pdf" download class="btn1">Certificate</a>
+                                <li><br><span>UI/UX Designing </span>by VEI Technologies</li><a href="images/UI-UX Designing.pdf" download class="btn1">Certificate</a>
                             </ul>
                           </div>
                 </div>
@@ -67,21 +77,22 @@
             <div class="services-list">
                 <div>
                     <i class="fa-solid fa-code"></i>
-                    <h2>Portfolio</h2>
-                    <a href="#">Learn More</a>
+                    <h2>Web Development</h2>
+                    <p>As a front end developer, I have a knowledge to develop a well responsive website by gaining a hands on experience by work as a intern in Askan Technologies, Puducherry.</p>
+                    <a href="images/Web_Developer_Internship.pdf" target="_blank">Learn More</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-pen-nib"></i>
                     <h2>UI/UX Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Hic itaque quasi veniam cum nobis, porro <br>dolor assumenda praesentium nisi odio nostrum <br>numquam eligendi. Fugiat adipisci vero sapiente nostrum, <br>voluptates deserunt!</p>
-                    <a href="#">Learn More</a>
+                    <p>As a UI/UX designer, I have a knowledge to design a full responsive and interactive User-Interface for a website or an application.  I gain the knowledge by VEI Technologies, Chennai.</p>
+                    <a href="images/UI-UX Designing.pdf" target="_blank">Learn More</a>
                 </div>
-                <div>
+                <!-- <div>
                     <i class="fa-solid fa-pen-nib"></i>
                     <h2>UI/UX Design</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Hic itaque quasi veniam cum nobis, porro <br>dolor assumenda praesentium nisi odio nostrum <br>numquam eligendi. Fugiat adipisci vero sapiente nostrum, <br>voluptates deserunt!</p>
                     <a href="#">Learn More</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -94,9 +105,14 @@
             <h1 class="sub-title">My Work</h1>
             <div class="work-list">
                 <div class="work">
-                    <img src="" alt="">
+                    <img src="images/Work.png" alt="">
+                    <div class="layer">
+                        <h3>Personal-Portfolio</h3>
+                        <p></p>
+                        <a href="https://github.com/AdhityaB-31/Personal-Portfolio" target="_blank"><i class="fa-solid fa-link"></i></a>
+                    </div>
                 </div>
-                <div class="work">
+                <!-- <div class="work">
                     <img src="images/work1.jpg" alt="">
                     <div class="layer">
                         <h3>Tourist App</h3>
@@ -111,9 +127,9 @@
                         <p>The design for this app shows the information about the sea water in India.</p>
                         <a href="#"><i class="fa-solid fa-link"></i></a>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <a href="#" class="btn">See More</a>
+            <a href="https://github.com/AdhityaB-31" class="btn" target="_blank">See More</a>
         </div>
        
     </div>
@@ -129,16 +145,17 @@
                     <p> <i class="fa-solid fa-paper-plane"></i>adhiadhi3129@gmail.com</p>
                     <p><i class="fa-solid fa-phone"></i>8608760813</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-facebook"></i> </a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i> </a>
-                        <a href="#"><i class="fa-brands fa-linkedin"></i> </a>
-                        <a href="#"><i class="fa-brands fa-facebook"></i> </a>
+                        <a href="https://www.facebook.com/profile.php?id=100064244096084&mibextid=rS40aB7S9Ucbxw6v" target="_blank"><i class="fa-brands fa-facebook"></i> </a>
+                        <a href="https://www.instagram.com/adhi_adhi_3129" target="_blank"><i class="fa-brands fa-instagram"></i> </a>
+                        <a href="https://www.linkedin.com/in/adhitya31" target="_blank"><i class="fa-brands fa-linkedin"></i> </a>
+                        <a href="https://github.com/AdhityaB-31" target="_blank"><i class="fa-brands fa-github"></i> </a>
                     </div>
                     <a href="images/Adhitya Resume.pdf" download  class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-right">
                     <form name="submit-to-google-sheet">
                         <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="number" name="Number" placeholder="WhatsApp Number(Optional)">
                         <input type="email" name="Email" placeholder="Your Email" required>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                         <button type="submit" class="btn btn2">Submit</button>
