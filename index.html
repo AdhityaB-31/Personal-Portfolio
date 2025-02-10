@@ -40,7 +40,7 @@
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
-                    <p><span class="space">_____</span>Hi, I am Adhitya.  I am currently persuing my UG degree of B.Tech Information Technology in Manakula Vinayagar Institute of Technology, Puducherry.  As a IT student I gain a knowledge about domains like Software Engineering, Database Management and so on.  In addition I gain a knowledge about Website Development by my own interest.  In recent time, I am studying about Core Java for develop my coding skill.  I would like to watch movies in my free time.</p>
+                    <p><span class="space">_____</span>Hi, I am Adhitya. I am currently pursuing my UG degree in B.Tech Information Technology at Manakula Vinayagar Institute of Technology, Puducherry. As an IT student, I gain knowledge about domains like Software Engineering, Database Management, and so on. In addition, I have gained knowledge about Website Development out of my own interest. Recently, I have been studying Core Java to develop my coding skills. I enjoy watching movies in my free time.</p>
 
                           <div class="tab-titles">
                             <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
@@ -80,21 +80,15 @@
                 <div>
                     <i class="fa-solid fa-code"></i>
                     <h2>Web Development</h2>
-                    <p>As a front end developer, I have a knowledge to develop a well responsive website by gaining a hands on experience by work as a intern in Askan Technologies, Puducherry.</p>
+                    <p>As a front-end developer, I have the knowledge to develop a well-responsive website by gaining hands-on experience through an internship at Askan Technologies, Puducherry.</p>
                     <a href="images/Web_Developer_Internship.pdf" target="_blank">Learn More</a>
                 </div>
                 <div>
                     <i class="fa-solid fa-pen-nib"></i>
                     <h2>UI/UX Design</h2>
-                    <p>As a UI/UX designer, I have a knowledge to design a full responsive and interactive User-Interface for a website or an application.  I gain the knowledge by VEI Technologies, Chennai.</p>
+                    <p>As a UI/UX designer, I have the knowledge to design a fully responsive and interactive user interface for a website or application. I gained this knowledge through VEI Technologies, Chennai.</p>
                     <a href="images/UI-UX Designing.pdf" target="_blank">Learn More</a>
                 </div>
-                <!-- <div>
-                    <i class="fa-solid fa-pen-nib"></i>
-                    <h2>UI/UX Design</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>Hic itaque quasi veniam cum nobis, porro <br>dolor assumenda praesentium nisi odio nostrum <br>numquam eligendi. Fugiat adipisci vero sapiente nostrum, <br>voluptates deserunt!</p>
-                    <a href="#">Learn More</a>
-                </div> -->
             </div>
         </div>
     </div>
@@ -212,28 +206,28 @@
 
 
         const textElement = document.getElementById('text');
-const texts = ["Front-End Developer", "UI/UX Designer"]; // Texts to type
-let currentTextIndex = 0;
-let index = 0;
+        const texts = ["Front-End Developer", "UI/UX Designer"];
+        let currentTextIndex = 0;
+        let index = 0;
 
-function type() {
-    const currentText = texts[currentTextIndex];
+        function type() {
+            const currentText = texts[currentTextIndex];
 
-    if (index < currentText.length) {
-        textElement.innerHTML += currentText.charAt(index) === ' ' ? '&nbsp;' : currentText.charAt(index);
-        index++;
-        setTimeout(type, 100); // Adjust speed here (200ms between letters)
-    } else {
-        setTimeout(() => {
-            textElement.innerHTML = ''; // Clear text to start again
-            index = 0; // Reset index
-            currentTextIndex = (currentTextIndex + 1) % texts.length; // Switch to next text
-            type(); // Restart typing
-        }, 1000); // Pause before restarting
-    }
-}
+            if (index < currentText.length) {
+                textElement.innerHTML += currentText.charAt(index) === ' ' ? '&nbsp;' : currentText.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            } else {
+                setTimeout(() => {
+                    textElement.innerHTML = '';
+                    index = 0;
+                    currentTextIndex = (currentTextIndex + 1) % texts.length;
+                    type();
+                }, 1000);
+            }
+        }
 
-type(); // Start the typing animation
+        type();
 
 
 

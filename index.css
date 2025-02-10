@@ -70,7 +70,7 @@ nav ul li a:hover::after{
     
 }
 .header-text .typing p {
-    animation: blink-caret 0.5s step-end infinite; /* Blink effect */
+    animation: blink-caret 0.5s step-end infinite;
 }
 
 @keyframes blink-caret {
