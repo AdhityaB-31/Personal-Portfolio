@@ -61,6 +61,23 @@ nav ul li a:hover::after{
     font-size: 30px;
 
 }
+.header-text .typing{
+    display: inline-block;
+    border-right: 2px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 30px;
+    
+}
+.header-text .typing p {
+    animation: blink-caret 0.5s step-end infinite; /* Blink effect */
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
 .header-text h1{
     font-size: 60px;
     margin-top: 20px;
@@ -363,13 +380,13 @@ nav .fa-solid{
     #header{
         background-image: url(images/Background_phone.jpg);
     }
-    .header-text{
-        margin-top: 25%;
+    .header-text .typing{
+        margin-top: 20%;
         font-size: 16px;
     }
     .header-text h1{
         margin-right: 20%;
-        font-size: 30px;
+        font-size: 25px;
     }
     nav .fa-solid{
         display: block;

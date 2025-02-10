@@ -24,7 +24,9 @@
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
-                <p>Front-End Developer</p>
+                <div class="typing">
+                    <p id="text"></p>
+                </div>
                 <h1>Hi, I'm <span>Adhitya</span> From Puducherry</h1>
             </div>
         </div>
@@ -204,6 +206,38 @@
         function closemenu(){
             sidemenu.style.right="-200px";
         }
+
+
+
+
+
+        const textElement = document.getElementById('text');
+const texts = ["Front-End Developer", "UI/UX Designer"]; // Texts to type
+let currentTextIndex = 0;
+let index = 0;
+
+function type() {
+    const currentText = texts[currentTextIndex];
+
+    if (index < currentText.length) {
+        textElement.innerHTML += currentText.charAt(index) === ' ' ? '&nbsp;' : currentText.charAt(index);
+        index++;
+        setTimeout(type, 100); // Adjust speed here (200ms between letters)
+    } else {
+        setTimeout(() => {
+            textElement.innerHTML = ''; // Clear text to start again
+            index = 0; // Reset index
+            currentTextIndex = (currentTextIndex + 1) % texts.length; // Switch to next text
+            type(); // Restart typing
+        }, 1000); // Pause before restarting
+    }
+}
+
+type(); // Start the typing animation
+
+
+
+
 
     </script>
 
