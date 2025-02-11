@@ -8,7 +8,7 @@
     <script src="https://kit.fontawesome.com/6a1dc81f6b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="header">
+    <div id="header" class="section">
         <div class="container">
             <nav>
                 <ul id="sidemenu">
@@ -32,7 +32,7 @@
         </div>
     </div>
     <!-- -------------------about------------------ -->
-    <div id="about">
+    <div id="about" class="section">
         <div class="container">
             <div class="row">
                 <div class="about-col-1">
@@ -73,7 +73,7 @@
         </div>
     </div>
     <!-- ------------------------------------------------------Service--------------------------------- -->
-    <div id="services">
+    <div id="services" class="section">
         <div class="container">
             <h1 class="sub-title">My Services</h1>
             <div class="services-list">
@@ -96,7 +96,7 @@
 
     <!-- ------------------------------portfolio--------------------------  -->
 
-    <div id="portfolio">
+    <div id="portfolio" class="section">
         <div class="container">
             <h1 class="sub-title">My Work</h1>
             <div class="work-list">
@@ -133,7 +133,7 @@
     <!-- --------------------------contact------------------------------- -->
 
 
-    <div id="contact">
+    <div id="contact" class="section">
         <div class="container">
             <div class="row">
                 <div class="contact-left">
@@ -177,18 +177,39 @@
 
     <script>
 
-        var tablinks = document.getElementsByClassName("tab-links");
-        var tabcontents = document.getElementsByClassName("tab-contents");
-        function opentab(tabname){
-            for(tablink of tablinks){
-                tablink.classList.remove("active-link");
-            }
-            for(tabcontent of tabcontents){
-                tabcontent.classList.remove("active-tab");
-            }
-            event.currentTarget.classList.add("active-link");
-            document.getElementById(tabname).classList.add("active-tab");
+var tablinks = document.getElementsByClassName("tab-links");
+var tabcontents = document.getElementsByClassName("tab-contents");
+
+function opentab(tabname) {
+    const activeTab = document.querySelector('.tab-contents.active-tab');
+
+    // Remove active-link class from all tab links
+    for (let tablink of tablinks) {
+        tablink.classList.remove("active-link");
+    }
+
+    // If there's an active tab, fade it out and slide it left
+    if (activeTab) {
+        activeTab.classList.remove("active-tab");
+        activeTab.classList.add("previous-tab"); // Start fading out and sliding left
+    }
+
+    // Add active-link class to the clicked tab link
+    event.currentTarget.classList.add("active-link");
+
+    // Get the new tab to be activated
+    const newTab = document.getElementById(tabname);
+    newTab.classList.add("active-tab"); // Start fading in and sliding in
+
+    // Remove the previous-tab class after the transition ends
+    setTimeout(() => {
+        if (activeTab) {
+            activeTab.classList.remove("previous-tab");
         }
+    }, 500); // Match this duration with your CSS transition duration
+}
+
+
 
     </script>
     <script>
@@ -228,6 +249,24 @@
         }
 
         type();
+
+
+        window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('.section');
+    const scrollPos = window.scrollY + window.innerHeight / 2;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            section.classList.add('active');
+        } else {
+            section.classList.remove('active');
+        }
+    });
+});
+
 
 
 

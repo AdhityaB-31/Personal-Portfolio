@@ -4,6 +4,14 @@
     font-family: 'Poppins',sans-serif;
     box-sizing: border-box;
 }
+.section {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.section.active {
+    opacity: 1;
+}
 html{
     scroll-behavior: smooth;
 }
@@ -179,12 +187,18 @@ nav ul li a:hover::after{
 }
 
 .tab-contents{
-    display: none;
-
+    position: absolute;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 .tab-contents.active-tab{
-    display: block ;
+    opacity: 1;
 }
+.tab-contents.previous-tab {
+    opacity: 0;
+}
+
 
 /* ------------------------Services----------------------- */
 
@@ -381,11 +395,10 @@ nav .fa-solid{
         background-image: url(images/Background_phone.jpg);
     }
     .header-text .typing{
-        margin-top: 20%;
         font-size: 16px;
     }
     .header-text h1{
-        margin-right: 20%;
+        margin-right: 40%;
         font-size: 25px;
     }
     nav .fa-solid{
