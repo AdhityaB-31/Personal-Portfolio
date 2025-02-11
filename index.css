@@ -25,6 +25,8 @@ body{
     background-image: url(images/Background.jpg);
     background-size: cover;
     background-position: center;
+    opacity: 0;
+    transition: opacity 2s ease;
      
 }
 .container{
@@ -393,6 +395,8 @@ nav .fa-solid{
 @media only screen and (max-width: 600px){
     #header{
         background-image: url(images/Background_phone.jpg);
+        opacity: 0;
+        transition: opacity 0.5s ease;
     }
     .header-text .typing{
         font-size: 16px;

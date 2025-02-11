@@ -6,6 +6,12 @@
     <title>Portfolio</title>
     <link rel="stylesheet" href="index.css">
     <script src="https://kit.fontawesome.com/6a1dc81f6b.js" crossorigin="anonymous"></script>
+    <style>
+        #header {
+            opacity: 0; /* Initially hidden */
+            transition: opacity 0.5s ease; /* Fade transition */
+        }
+    </style>
 </head>
 <body>
     <div id="header" class="section">
@@ -20,7 +26,6 @@
                     <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
                 </ul>
                 <img src="images/logo.png" alt="" class="logo">
-                
                 <i class="fa-solid fa-bars" onclick="openmenu()"></i>
             </nav>
             <div class="header-text">
@@ -41,33 +46,31 @@
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
                     <p><span class="space">_____</span>Hi, I am Adhitya. I am currently pursuing my UG degree in B.Tech Information Technology at Manakula Vinayagar Institute of Technology, Puducherry. As an IT student, I gain knowledge about domains like Software Engineering, Database Management, and so on. In addition, I have gained knowledge about Website Development out of my own interest. Recently, I have been studying Core Java to develop my coding skills. I enjoy watching movies in my free time.</p>
-
-                          <div class="tab-titles">
-                            <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
-                            <p class="tab-links" onclick="opentab('Education')">Education</p>
-                            <p class="tab-links" onclick="opentab('Certifications')">Certifications</p>
-                          </div>
-                          <div class="tab-contents active-tab" id="Skills">
-                            <ul>
-                                <li><span>Programming Language</span><br><p>Java</p><p>C++</p><p>HTML & CSS</p></li>
-                                <li><span>Communication</span><br><p>English</p><p>Tamil</p></li>
-                                <li><span>Key Strength</span><br><p>Leadership </p><p>Good Communication Skill </p><p>Fast Typer</p><p>Teamwork</p><p>Dedication</p></li>
-                            </ul>
-                          </div>
-                          <div class="tab-contents" id="Education">
-                            <ul>
-                                <li><span>2022-2026</span><br><p>B.Tech (Information Technology) from MVIT Puducherry.</p></li>
-                                <li><span>2020-2022</span><br><p>HSE in Computer Science from VHSS,Sedarapet Puducherry.</p></li>
-                                <!-- <li><span>2020</span><br><p>SSLC from DOHS,Thondamanatham Puducherry.</p></li> -->
-                            </ul>
-                          </div>
-                          <div class="tab-contents" id="Certifications">
-                            <ul>
-                                <li><span>Full-Stack Development</span> By NoviTech. </li><a href="images/Full_Stack_Development.pdf" download class="btn1">Certificate</a><br>
-                                <li><br><span>Front-End Developer</span> Internship in Askan Technologies</li><a href="images/Web_Developer_Internship.pdf" download class="btn1">Certificate</a>
-                                <li><br><span>UI/UX Designing </span>by VEI Technologies</li><a href="images/UI-UX Designing.pdf" download class="btn1">Certificate</a>
-                            </ul>
-                          </div>
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('Skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('Education')">Education</p>
+                        <p class="tab-links" onclick="opentab('Certifications')">Certifications</p>
+                    </div>
+                    <div class="tab-contents active-tab" id="Skills">
+                        <ul>
+                            <li><span>Programming Language</span><br><p>Java</p><p>C++</p><p>HTML & CSS</p></li>
+                            <li><span>Communication</span><br><p>English</p><p>Tamil</p></li>
+                            <li><span>Key Strength</span><br><p>Leadership </p><p>Good Communication Skill </p><p>Fast Typer</p><p>Teamwork</p><p>Dedication</p></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="Education">
+                        <ul>
+                            <li><span>2022-2026</span><br><p>B.Tech (Information Technology) from MVIT Puducherry.</p></li>
+                            <li><span>2020-2022</span><br><p>HSE in Computer Science from VHSS,Sedarapet Puducherry.</p></li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="Certifications">
+                        <ul>
+                            <li><span>Full-Stack Development</span> By NoviTech. </li><a href="images/Full_Stack_Development.pdf" download class="btn1">Certificate</a><br>
+                            <li><br><span>Front-End Developer</span> Internship in Askan Technologies</li><a href="images/Web_Developer_Internship.pdf" download class="btn1">Certificate</a>
+                            <li><br><span>UI/UX Designing </span>by VEI Technologies</li><a href="images/UI-UX Designing.pdf" download class="btn1">Certificate</a>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -92,10 +95,7 @@
             </div>
         </div>
     </div>
-
-
     <!-- ------------------------------portfolio--------------------------  -->
-
     <div id="portfolio" class="section">
         <div class="container">
             <h1 class="sub-title">My Work</h1>
@@ -108,31 +108,11 @@
                         <a href="https://github.com/AdhityaB-31/Personal-Portfolio" target="_blank"><i class="fa-solid fa-link"></i></a>
                     </div>
                 </div>
-                <!-- <div class="work">
-                    <img src="images/work1.jpg" alt="">
-                    <div class="layer">
-                        <h3>Tourist App</h3>
-                        <p>The design for this app shows the information about the sea water in India.</p>
-                        <a href="#"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div>
-                <div class="work">
-                    <img src="images/work2.jpg" alt="">
-                    <div class="layer">
-                        <h3>Tourist App</h3>
-                        <p>The design for this app shows the information about the sea water in India.</p>
-                        <a href="#"><i class="fa-solid fa-link"></i></a>
-                    </div>
-                </div> -->
             </div>
             <a href="https://github.com/AdhityaB-31" class="btn" target="_blank">See More</a>
         </div>
-       
     </div>
-
     <!-- --------------------------contact------------------------------- -->
-
-
     <div id="contact" class="section">
         <div class="container">
             <div class="row">
@@ -142,11 +122,11 @@
                     <p><i class="fa-solid fa-phone"></i>8608760813</p>
                     <div class="social-icons">
                         <a href="https://www.facebook.com/profile.php?id=100064244096084&mibextid=rS40aB7S9Ucbxw6v" target="_blank"><i class="fa-brands fa-facebook"></i> </a>
-                        <a href="https://www.instagram.com/adhi_adhi_3129" target="_blank"><i class="fa-brands fa-instagram"></i> </a>
-                        <a href="https://www.linkedin.com/in/adhitya31" target="_blank"><i class="fa-brands fa-linkedin"></i> </a>
-                        <a href="https://github.com/AdhityaB-31" target="_blank"><i class="fa-brands fa-github"></i> </a>
+                        <a href="https://www.instagram.com/adhi_adhi_3129" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/adhitya31" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/AdhityaB-31" target="_blank"><i class="fa-brands fa-github"></i></a>
                     </div>
-                    <a href="images/Adhitya Resume.pdf" download  class="btn btn2">Download CV</a>
+                    <a href="images/Adhitya Resume.pdf" download class="btn btn2">Download CV</a>
                 </div>
                 <div class="contact-right">
                     <form name="submit-to-google-sheet">
@@ -162,58 +142,42 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script>
 
-var tablinks = document.getElementsByClassName("tab-links");
-var tabcontents = document.getElementsByClassName("tab-contents");
+        //tab functionality
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
 
-function opentab(tabname) {
-    const activeTab = document.querySelector('.tab-contents.active-tab');
+        function opentab(tabname) {
+            const activeTab = document.querySelector('.tab-contents.active-tab');
 
-    // Remove active-link class from all tab links
-    for (let tablink of tablinks) {
-        tablink.classList.remove("active-link");
-    }
+            // Remove active-link class from all tab links
+            for (let tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
 
-    // If there's an active tab, fade it out and slide it left
-    if (activeTab) {
-        activeTab.classList.remove("active-tab");
-        activeTab.classList.add("previous-tab"); // Start fading out and sliding left
-    }
+            // If there's an active tab, fade it out and slide it left
+            if (activeTab) {
+                activeTab.classList.remove("active-tab");
+                activeTab.classList.add("previous-tab"); // Start fading out and sliding left
+            }
 
-    // Add active-link class to the clicked tab link
-    event.currentTarget.classList.add("active-link");
+            // Add active-link class to the clicked tab link
+            event.currentTarget.classList.add("active-link");
 
-    // Get the new tab to be activated
-    const newTab = document.getElementById(tabname);
-    newTab.classList.add("active-tab"); // Start fading in and sliding in
+            // Get the new tab to be activated
+            const newTab = document.getElementById(tabname);
+            newTab.classList.add("active-tab"); // Start fading in and sliding in
 
-    // Remove the previous-tab class after the transition ends
-    setTimeout(() => {
-        if (activeTab) {
-            activeTab.classList.remove("previous-tab");
+            // Remove the previous-tab class after the transition ends
+            setTimeout(() => {
+                if (activeTab) {
+                    activeTab.classList.remove("previous-tab");
+                }
+            }, 500); // Match this duration with your CSS transition duration
         }
-    }, 500); // Match this duration with your CSS transition duration
-}
 
-
-
-    </script>
-    <script>
-
+        // Sidemenu functionality
         var sidemenu = document.getElementById("sidemenu");
         function openmenu(){
             sidemenu.style.right="0";
@@ -222,10 +186,7 @@ function opentab(tabname) {
             sidemenu.style.right="-200px";
         }
 
-
-
-
-
+        // Typing effect
         const textElement = document.getElementById('text');
         const texts = ["Front-End Developer", "UI/UX Designer"];
         let currentTextIndex = 0;
@@ -249,50 +210,53 @@ function opentab(tabname) {
         }
 
         type();
+        
 
-
+        // Scroll functionality with fade-out effect
         window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('.section');
-    const scrollPos = window.scrollY + window.innerHeight / 2;
+            const sections = document.querySelectorAll('.section');
+            const scrollPos = window.scrollY + window.innerHeight / 2;
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
 
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            section.classList.add('active');
-        } else {
-            section.classList.remove('active');
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        });
+
+
+        // Fade in header on load
+        function fadeInHeader() {
+            const header = document.getElementById('header');
+            header.style.opacity = '1'; // Set opacity to 1
         }
-    });
-});
 
+        window.addEventListener('load', function() {
+            setTimeout(fadeInHeader, 500); // Fade in after 1000 milliseconds
+        });
 
+        // Google Sheets form submission
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyO3Nig2jaP1Jvb9-yyRPrvhuEixcHfPTqSJwVZorBRV-Q3aXv7HYdRFzmrPfNxHKT_/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById("msg");
 
-
-
-
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message Sent Successfully";
+                    setTimeout(function() {
+                        msg.innerHTML = "";
+                    }, 5000);
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message));
+        });
     </script>
-
-<script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyO3Nig2jaP1Jvb9-yyRPrvhuEixcHfPTqSJwVZorBRV-Q3aXv7HYdRFzmrPfNxHKT_/exec'
-    const form = document.forms['submit-to-google-sheet']
-    const msg=document.getElementById("msg")
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML = "Message Sent Successfully"
-            setTimeout(function(){
-                msg.innerHTML=""
-            },5000)
-            form.reset()
-        })
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script>
-
-
 </body>
 </html>
