@@ -96,45 +96,12 @@ npm run build
 
 Theme toggles by switching `.theme-dark` / `.theme-light` on the root div in `App.js`.
 
----
-
-## 🖼️ Adding Project Images
-
-Drop screenshots into `public/Public/Images/Project-Work/<ProjectName>/`
-then update the `images` array in `src/components/Portfolio.js`:
-
-```js
-images: [
-  "/Public/Images/Project-Work/YourProject/screen1.png",
-  "/Public/Images/Project-Work/YourProject/screen2.png",
-],
-```
-
-The slider auto-picks them up and cycles every 2.5 seconds.
-
----
-
-## 📬 Contact Form
-
-The form posts to a Google Apps Script endpoint in `Contact.js`. To use your own:
-1. Create a Google Sheet → Extensions → Apps Script → deploy as web app.
-2. Replace `SCRIPT_URL` in `src/components/Contact.js`.
-
----
-
-## 🌐 Deployment
-
-| Platform | Command |
-|---|---|
-| Vercel | `npx vercel` |
-| Netlify | Drag `/build` folder into dashboard |
-| GitHub Pages | Add `homepage` to `package.json`, then `npm run deploy` |
 
 ---
 
 ## 👤 Author
 
 **Adhitya B** — B.Tech IT, MVIT Puducherry  
-📧 adhiadhi3129@gmail.com | 🔗 [LinkedIn](https://linkedin.com/in/adhitya31) | ⌨️ [GitHub](https://github.com/AdhityaB-31)
+📧 adhityabvm@gmail.com | 🔗 [LinkedIn](https://linkedin.com/in/adhitya31) | ⌨️ [GitHub](https://github.com/AdhityaB-31)
 
-*Built with React ⚛️ — 2025*
+*Built with React ⚛️*
