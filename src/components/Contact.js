@@ -106,7 +106,7 @@ export default function Contact() {
             ))}
           </div>
 
-          <a href="/Public/Documents/Adhitya Resume.pdf" download className="btn-primary" style={{ marginTop: 8 }}>
+          <a href="/Public/Documents/B_Adhitya-Resume.pdf" download className="btn-primary" style={{ marginTop: 8 }}>
             Download CV ↓
           </a>
         </div>
