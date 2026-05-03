@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── THEME VARIABLES ── */
+.theme-dark {
+  --bg:         #0d0f14;
+  --bg2:        #13161e;
+  --surface:    rgba(255,255,255,0.04);
+  --surfaceHov: rgba(255,255,255,0.08);
+  --border:     rgba(255,255,255,0.08);
+  --text:       #e8eaf0;
+  --muted:      #7c8094;
+  --accent:     #00e5ff;
+  --accentGlow: rgba(0,229,255,0.12);
+  --accentHov:  #33eeff;
+  --card:       rgba(255,255,255,0.03);
+  --cardBorder: rgba(0,229,255,0.15);
+  --nav:        rgba(13,15,20,0.88);
+  --shadow:     0 8px 40px rgba(0,229,255,0.1);
+  --imgFilter:  grayscale(20%);
+}
+
+.theme-light {
+  --bg:         #f5f0e8;
+  --bg2:        #eae5d8;
+  --surface:    rgba(0,0,0,0.04);
+  --surfaceHov: rgba(0,0,0,0.08);
+  --border:     rgba(0,0,0,0.1);
+  --text:       #1a1a2e;
+  --muted:      #7a7065;
+  --accent:     #0057ff;
+  --accentGlow: rgba(0,87,255,0.1);
+  --accentHov:  #0040cc;
+  --card:       rgba(255,255,255,0.75);
+  --cardBorder: rgba(0,87,255,0.18);
+  --nav:        rgba(245,240,232,0.88);
+  --shadow:     0 8px 40px rgba(0,87,255,0.1);
+  --imgFilter:  grayscale(10%);
+}
+
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+.theme-dark, .theme-light {
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.4s, color 0.4s;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+::selection { background: var(--accent); color: #000; }
+
+/* ── SHARED LAYOUT ── */
+.section { padding: 90px 6%; }
+.section-alt { background: var(--bg2); }
+
+.section-tag {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(32px, 4.5vw, 54px);
+  font-weight: 800; letter-spacing: -1.5px; line-height: 1.07;
+  margin-bottom: 14px;
+}
+.section-desc {
+  color: var(--muted); font-size: clamp(14px, 1.5vw, 16px);
+  max-width: 540px; line-height: 1.65; margin-bottom: 8px;
+}
+.divider {
+  width: 36px; height: 3px;
+  background: var(--accent); border-radius: 2px;
+  margin: 14px 0 44px;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  padding: 12px 26px; border-radius: 8px;
+  background: var(--accent); color: #000;
+  font-weight: 700; font-size: 14px; letter-spacing: 0.02em;
+  border: none; cursor: pointer; text-decoration: none;
+  transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: 'DM Sans', sans-serif; text-align: center;
+}
+.btn-primary:hover { background: var(--accentHov); transform: translateY(-2px); box-shadow: var(--shadow); }
+.btn-primary:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+
+.btn-outline {
+  padding: 12px 26px; border-radius: 8px;
+  background: transparent; color: var(--text);
+  font-weight: 500; font-size: 14px;
+  border: 1px solid var(--border); cursor: pointer; text-decoration: none;
+  transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: 'DM Sans', sans-serif; text-align: center;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); background: var(--accentGlow); }
+
+/* ── KEYFRAMES ── */
+@keyframes pulse  { 0%,100%{opacity:1} 50%{opacity:0.3} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(14px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+/* ── RESPONSIVE BASE ── */
+@media (max-width: 768px) {
+  .section { padding: 64px 5%; }
+  .divider { margin-bottom: 32px; }
+}
+@media (max-width: 480px) {
+  .section { padding: 52px 4%; }
+}
