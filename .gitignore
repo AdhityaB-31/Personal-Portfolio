@@ -1,23 +1,60 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# dependencies
-/node_modules
-/.pnp
+# Dependency directories
+node_modules/
+jspm_packages/
+web_modules/
+.pnp
 .pnp.js
 
-# testing
-/coverage
+# Optional npm cache directory
+.npm
 
-# production
-/build
+# Output/build directory
+dist/
+dist-ssr/
+build/
+out/
 
-# misc
+# IDE / Editors
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Operating System files
 .DS_Store
+Thumbs.db
+
+# Environment variables
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# TypeScript / Build cache
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.tsbuildinfo
+
+# Cypress / Playwright tests screenshots/videos
+cypress/screenshots/
+cypress/videos/
+
+# Temporary files
+tmp/
+temp/

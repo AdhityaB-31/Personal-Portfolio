@@ -1,41 +1,60 @@
 import { useState, useEffect } from "react";
+import Sparkles from "./Sparkles";
 import "./Hero.css";
 
-function useTyping(words, speed = 90, pause = 1400) {
+function useTyping(words, speed = 100, pause = 1500) {
   const [display, setDisplay] = useState("");
   const [wordIdx, setWordIdx] = useState(0);
-  const [charIdx, setCharIdx] = useState(0);
-  const [deleting, setDeleting] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const current = words[wordIdx];
-    const timeout = setTimeout(() => {
-      if (!deleting) {
-        setDisplay(current.slice(0, charIdx + 1));
-        if (charIdx + 1 === current.length) {
-          setTimeout(() => setDeleting(true), pause);
-        } else {
-          setCharIdx((c) => c + 1);
-        }
-      } else {
-        setDisplay(current.slice(0, charIdx - 1));
-        if (charIdx - 1 === 0) {
-          setDeleting(false);
-          setWordIdx((w) => (w + 1) % words.length);
-          setCharIdx(0);
-        } else {
-          setCharIdx((c) => c - 1);
-        }
-      }
-    }, deleting ? speed / 2 : speed);
-    return () => clearTimeout(timeout);
-  }, [charIdx, deleting, wordIdx, words, speed, pause]);
+    let timer;
+    const currentWord = words[wordIdx];
+
+    if (isDeleting) {
+      timer = setTimeout(() => {
+        setDisplay((prev) => prev.slice(0, -1));
+      }, speed / 2);
+    } else {
+      timer = setTimeout(() => {
+        setDisplay(currentWord.slice(0, display.length + 1));
+      }, speed);
+    }
+
+    if (!isDeleting && display === currentWord) {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        setIsDeleting(true);
+      }, pause);
+    } else if (isDeleting && display === "") {
+      setIsDeleting(false);
+      setWordIdx((prev) => (prev + 1) % words.length);
+    }
+
+    return () => clearTimeout(timer);
+  }, [display, isDeleting, wordIdx, words, speed, pause]);
 
   return display;
 }
 
+const heroImages = [
+  "/Public/Images/Hero-Section-Images/harry_potter.png",
+  "/Public/Images/Hero-Section-Images/hermione_granger.png",
+  "/Public/Images/Hero-Section-Images/hogwarts_trio.png",
+  "/Public/Images/Hero-Section-Images/freelance_workspace.png",
+  "/Public/Images/Hero-Section-Images/freelance_dashboard.png"
+];
+
 export default function Hero() {
-  const typed = useTyping(["Front-End Developer", "UI/UX Designer", "Freelancer"]);
+  const typed = useTyping(["Freelance Web Developer", "Software Developer", "Technical Tutor"]);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleNav = (e, id) => {
     e.preventDefault();
@@ -44,17 +63,16 @@ export default function Hero() {
 
   return (
     <section id="home" className="hero">
-      {/* Background decorations */}
       <div className="hero-bg">
         <div className="hero-grid" />
         <div className="hero-orb orb-1" />
         <div className="hero-orb orb-2" />
+        <Sparkles count={15} />
       </div>
-
       <div className="hero-content">
         <div className="hero-badge">
           <span className="badge-dot" />
-          Available for work
+          Available for Freelance &amp; Tutoring
         </div>
 
         <h1 className="hero-heading">
@@ -68,9 +86,7 @@ export default function Hero() {
         </h1>
 
         <p className="hero-sub">
-          B.Tech IT student from Puducherry, passionate about building clean, fast,
-          and beautiful web experiences. Currently deepening skills in Java &amp;
-          full-stack development.
+          Full-Stack Developer specializing in building high-performance web applications, robust backends, and mentoring developers. I help businesses scale with clean, modern code.
         </p>
 
         <div className="hero-actions">
@@ -103,13 +119,10 @@ export default function Hero() {
       {/* Floating image card */}
       <div className="hero-img-wrap">
         <div className="hero-img-card">
-          <img src="/Public/Images/Adhitya_Image1.png" alt="Adhitya" className="hero-img" />
-        </div>
-        <div className="hero-img-badge">
-          <span className="badge-dot" />
-          <div>
-            <div className="badge-main">Open to Opportunities</div>
-            <div className="badge-sub">Jobs, Internships &amp; Freelance</div>
+          <div className="hero-slider-track" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+            {heroImages.map((src, idx) => (
+              <img key={idx} src={src} alt={`Wizard coder setup ${idx + 1}`} className="hero-slide-img" />
+            ))}
           </div>
         </div>
       </div>

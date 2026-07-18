@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Sparkles from "./Sparkles";
 import "./Contact.css";
 
 const SCRIPT_URL =
@@ -66,6 +67,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="section section-alt contact-section">
+      <Sparkles count={9} />
       <div className="section-tag">Contact</div>
       <h2 className="section-title">Let's work together</h2>
       <div className="divider" />

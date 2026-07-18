@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -10,6 +10,17 @@ import "./styles/global.css";
 
 export default function App() {
   const [dark, setDark] = useState(true);
+
+  useEffect(() => {
+    const body = document.body;
+    if (dark) {
+      body.classList.add("theme-dark");
+      body.classList.remove("theme-light");
+    } else {
+      body.classList.add("theme-light");
+      body.classList.remove("theme-dark");
+    }
+  }, [dark]);
 
   return (
     <div className={dark ? "theme-dark" : "theme-light"}>

@@ -23,8 +23,22 @@ export default function Navbar({ dark, setDark }) {
     <>
       <nav className={`nav ${scrolled ? "scrolled" : ""}`}>
         <a href="#home" className="nav-logo" onClick={(e) => handleNav(e, "home")}>
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="logo-icon"
+            style={{ marginRight: "8px", color: "var(--accent)" }}
+          >
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
           Adhi<span>.</span>
-          {/* <img src="/Public/Images/logo.png" alt="Logo" className="nav-logo-img" /> */}
         </a>
 
         <ul className="nav-links">

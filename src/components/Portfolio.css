@@ -1,122 +1,264 @@
-.portfolio-section { background: var(--bg); }
+.portfolio-section {
+  background: var(--bg);
+}
 
-/* Max 3 cards per row, responsive down to 1 */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px; margin-top: 16px;
+  gap: 28px;
+  margin-top: 24px;
 }
 
-/* ── PROJECT CARD ── */
+/* Project Card glass-card style */
 .project-card {
-  background: var(--card); border: 1px solid var(--border);
-  border-radius: 20px; overflow: hidden;
-  transition: all 0.3s; display: flex; flex-direction: column;
-}
-.project-card:hover {
-  border-color: var(--cardBorder);
-  transform: translateY(-6px);
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
   box-shadow: var(--shadow);
 }
 
-/* ── SLIDER ── */
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  box-shadow: 0 20px 40px rgba(var(--accent-rgb), 0.1), var(--glow-shadow);
+}
+
+/* Slider styling */
 .slider-wrap {
-  position: relative; width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden; background: var(--bg2); flex-shrink: 0;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--bg-alt);
+  flex-shrink: 0;
+  border-bottom: 1.5px solid var(--border);
 }
 
-.slider-img {
-  width: 100%; height: 100%; object-fit: cover;
-  display: block;
-  transition: opacity 0.25s ease;
+.slider-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  height: 100%;
+  will-change: transform;
 }
-.slider-img.fade-in  { opacity: 1; }
-.slider-img.fade-out { opacity: 0; }
 
-/* Arrows — always visible on touch, hover-only on pointer devices */
+.slider-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+  filter: var(--img-filter);
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.project-card:hover .slider-slide-img {
+  filter: none;
+}
+
+/* Navigation arrows */
 .slider-arrow {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(0,0,0,0.55); border: none; color: #fff;
-  width: 32px; height: 32px; border-radius: 50%;
-  font-size: 20px; line-height: 1; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity 0.2s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(var(--bg), 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
   z-index: 2;
 }
+
 @media (hover: none) {
-  /* Always show arrows on touch screens */
-  .slider-arrow { opacity: 0.75; }
+  .slider-arrow {
+    opacity: 0.8;
+  }
 }
-.slider-wrap:hover .slider-arrow { opacity: 1; }
-.arrow-prev { left: 10px; }
-.arrow-next { right: 10px; }
-.slider-arrow:hover { background: var(--accent); color: #000; }
 
-/* Dots */
+.slider-wrap:hover .slider-arrow {
+  opacity: 1;
+}
+
+.arrow-prev {
+  left: 12px;
+}
+
+.arrow-next {
+  right: 12px;
+}
+
+.slider-arrow:hover {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Pagination Dots */
 .slider-dots {
-  position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%);
-  display: flex; gap: 6px; z-index: 2;
-}
-.dot {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: rgba(255,255,255,0.5); border: none; cursor: pointer;
-  transition: all 0.25s; padding: 0;
-}
-.dot.active {
-  background: var(--accent); width: 20px; border-radius: 4px;
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
 }
 
-/* Counter */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot.active {
+  background: var(--accent);
+  width: 22px;
+  border-radius: 100px;
+}
+
+/* Slide Counter */
 .slider-counter {
-  position: absolute; top: 10px; right: 12px;
-  background: rgba(0,0,0,0.55); backdrop-filter: blur(6px);
-  color: #fff; font-size: 11px; font-weight: 600;
-  padding: 3px 9px; border-radius: 100px; z-index: 2;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(var(--bg), 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  z-index: 2;
   letter-spacing: 0.05em;
 }
 
-/* ── PROJECT BODY ── */
-.project-body { padding: 20px 22px; flex: 1; display: flex; flex-direction: column; }
+/* Project Body */
+.project-body {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
 .project-header {
-  display: flex; align-items: center;
-  justify-content: space-between; margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
+
 .project-tag {
-  font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--accent);
-  background: var(--accentGlow); border: 1px solid var(--cardBorder);
-  padding: 4px 10px; border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  background: var(--accent-glow-2);
+  border: 1.5px solid rgba(13, 148, 136, 0.15);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
 }
+
 .github-link {
-  color: var(--muted); transition: color 0.2s;
-  display: flex; align-items: center;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface);
 }
-.github-link:hover { color: var(--accent); }
+
+.github-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-glow);
+  transform: rotate(15deg) scale(1.08);
+}
 
 .project-title {
-  font-family: 'Syne', sans-serif;
-  font-size: 18px; font-weight: 700; margin-bottom: 8px;
-}
-.project-desc {
-  color: var(--muted); font-size: 13px; line-height: 1.65; margin-bottom: 16px; flex: 1;
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--text);
 }
 
-.tech-stack { display: flex; gap: 6px; flex-wrap: wrap; }
+.project-desc {
+  color: var(--text-muted);
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+/* Tech Stack pills */
+.tech-stack {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .tech-pill {
-  font-size: 11px; font-weight: 600;
-  background: var(--surface); border: 1px solid var(--border);
-  color: var(--muted); padding: 3px 10px; border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: 100px;
+  transition: all 0.2s ease;
+}
+
+.project-card:hover .tech-pill {
+  border-color: rgba(var(--accent-rgb), 0.15);
+  color: var(--text);
 }
 
 /* CTA */
-.portfolio-cta { text-align: center; margin-top: 48px; }
+.portfolio-cta {
+  text-align: center;
+  margin-top: 56px;
+}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
-  .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
 }
-@media (max-width: 600px) {
-  .portfolio-grid { grid-template-columns: 1fr; }
+
+@media (max-width: 680px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
