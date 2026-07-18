@@ -5,26 +5,7 @@ import "./Reviews.css";
 // Configure your Google Sheets Web App URL or Supabase REST URL here:
 const REVIEWS_API_URL = "https://script.google.com/macros/s/AKfycbwHC7io6RU5ipdY6n7CpTXt6Ls0BnfroQt2pEFI3IPp_VbjVjIs0HIwF241wPdlFnNl/exec";
 
-const initialReviews = [
-  {
-    name: "Alex Rivera",
-    role: "Founder, TechVibe Solutions",
-    rating: 5,
-    comment: "Adhitya delivered clean React code ahead of schedule. The responsiveness and design exceeded my expectations!",
-  },
-  {
-    name: "Sarah Jenkins",
-    role: "Product Lead, DevFlow",
-    rating: 5,
-    comment: "The Spring Boot REST API built by Adhitya was secure, well-structured, and integrated flawlessly. Outstanding work!",
-  },
-  {
-    name: "Rajesh Kumar",
-    role: "Technical Tutor Mentee",
-    rating: 5,
-    comment: "Excellent mentoring session. He explained complex database schema and backend design patterns in a highly accessible way.",
-  },
-];
+const initialReviews = [];
 
 const hireMePoints = [
   {
@@ -197,7 +178,7 @@ export default function Reviews() {
                 </p>
                 <div className="testimonial-author">
                   <div className="author-name">Adhitya B.</div>
-                  <div className="author-role">Portfolio Owner</div>
+                  <div className="author-role">Developer</div>
                 </div>
               </div>
             )}
