@@ -68,8 +68,7 @@ export default function Reviews() {
       try {
         const res = await fetch(REVIEWS_API_URL);
         const data = await res.json();
-        // Assuming API returns an array of reviews. Under Google Sheets, you only output approved ones.
-        if (Array.isArray(data) && data.length > 0) {
+        if (Array.isArray(data)) {
           setReviews(data);
         }
       } catch (err) {
@@ -164,25 +163,44 @@ export default function Reviews() {
           <h3 className="sub-title">Client Reviews</h3>
 
           <div className="testimonial-wrapper">
-            {reviews.map((r, idx) => (
-              <div
-                key={idx}
-                className={`testimonial-slide ${idx === currentIndex ? "active" : ""}`}
-              >
-                <div className="stars">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <span key={i} className={`star ${i < r.rating ? "filled" : ""}`}>
-                      ★
-                    </span>
-                  ))}
+            {reviews.length > 0 ? (
+              reviews.map((r, idx) => (
+                <div
+                  key={idx}
+                  className={`testimonial-slide ${idx === currentIndex ? "active" : ""}`}
+                >
+                  <div className="stars">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span key={i} className={`star ${i < r.rating ? "filled" : ""}`}>
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                  <p className="testimonial-comment">"{r.comment}"</p>
+                  <div className="testimonial-author">
+                    <div className="author-name">{r.name}</div>
+                    <div className="author-role">{r.role}</div>
+                  </div>
                 </div>
-                <p className="testimonial-comment">"{r.comment}"</p>
+              ))
+            ) : (
+              <div className="testimonial-slide active">
+                <div className="stars">
+                  <span className="star filled">★</span>
+                  <span className="star filled">★</span>
+                  <span className="star filled">★</span>
+                  <span className="star filled">★</span>
+                  <span className="star filled">★</span>
+                </div>
+                <p className="testimonial-comment">
+                  "No reviews have been published yet. If we have worked together, please click 'Write a Review' below to share your experience!"
+                </p>
                 <div className="testimonial-author">
-                  <div className="author-name">{r.name}</div>
-                  <div className="author-role">{r.role}</div>
+                  <div className="author-name">Adhitya B.</div>
+                  <div className="author-role">Portfolio Owner</div>
                 </div>
               </div>
-            ))}
+            )}
           </div>
 
           <div className="reviews-actions">
