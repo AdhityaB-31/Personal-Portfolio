@@ -254,7 +254,7 @@ export default function Reviews() {
                   required
                   value={form.name}
                   onChange={handleChange}
-                  placeholder="e.g. John Doe"
+                  placeholder="e.g. Adhitya"
                 />
               </div>
 
@@ -267,7 +267,7 @@ export default function Reviews() {
                   required
                   value={form.role}
                   onChange={handleChange}
-                  placeholder="e.g. Founder at Startup"
+                  placeholder="e.g. Student"
                 />
               </div>
 
