@@ -160,7 +160,9 @@ export default function Reviews() {
                   <p className="testimonial-comment">"{r.comment}"</p>
                   <div className="testimonial-author">
                     <div className="author-name">{r.name}</div>
-                    <div className="author-role">{r.role}</div>
+                    <div className="author-role">
+                      {r.role === "Owner" || r.role === "Portfolio Owner" ? "Developer" : r.role}
+                    </div>
                   </div>
                 </div>
               ))
