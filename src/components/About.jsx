@@ -77,7 +77,7 @@ export default function About() {
         {/* Info column */}
         <div className="about-info">
           <p className="about-bio">
-            Hi, I'm <strong>Adhitya B.</strong>, an Information Technology graduate and freelance software engineer.
+            Hi, I'm <strong>Adhitya B</strong>, an Information Technology graduate and freelance software engineer.
             I specialize in crafting responsive React interfaces, designing secure Spring Boot REST APIs, and providing code-level mentorship.
             My focus is on writing maintainable, production-ready code that solves real business challenges.
             Whether you need a custom web application, database optimization, cloud deployment, or technical tutoring, I deliver high-quality, scalable results.
