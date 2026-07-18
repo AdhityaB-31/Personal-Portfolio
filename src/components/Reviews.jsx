@@ -160,9 +160,7 @@ export default function Reviews() {
                   <p className="testimonial-comment">"{r.comment}"</p>
                   <div className="testimonial-author">
                     <div className="author-name">{r.name}</div>
-                    <div className="author-role">
-                      {r.role === "Owner" || r.role === "Portfolio Owner" ? "Developer" : r.role}
-                    </div>
+                    <div className="author-role">{r.role}</div>
                   </div>
                 </div>
               ))
@@ -179,7 +177,7 @@ export default function Reviews() {
                   "No reviews have been published yet. If we have worked together, please click 'Write a Review' below to share your experience!"
                 </p>
                 <div className="testimonial-author">
-                  <div className="author-name">Adhitya B.</div>
+                  <div className="author-name">Adhitya B</div>
                   <div className="author-role">Developer</div>
                 </div>
               </div>
