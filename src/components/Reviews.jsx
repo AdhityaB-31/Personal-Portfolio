@@ -39,24 +39,35 @@ export default function Reviews() {
   const [form, setForm] = useState({ name: "", role: "", rating: 5, comment: "" });
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [loadingReviews, setLoadingReviews] = useState(true);
   const [msg, setMsg] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Fetch reviews from spreadsheet or backend API if configured
   useEffect(() => {
-    if (!REVIEWS_API_URL) return;
-    const fetchReviews = async () => {
-      try {
-        const res = await fetch(REVIEWS_API_URL);
-        const data = await res.json();
-        if (Array.isArray(data)) {
-          setReviews(data);
+    const delayPromise = new Promise((resolve) => setTimeout(resolve, 5000));
+    
+    if (REVIEWS_API_URL) {
+      const fetchReviews = async () => {
+        try {
+          const fetchPromise = fetch(REVIEWS_API_URL).then((res) => res.json());
+          const [data] = await Promise.all([fetchPromise, delayPromise]);
+          if (Array.isArray(data)) {
+            setReviews(data);
+          }
+        } catch (err) {
+          console.error("Failed to fetch reviews:", err);
+          await delayPromise;
+        } finally {
+          setLoadingReviews(false);
         }
-      } catch (err) {
-        console.error("Failed to fetch reviews:", err);
-      }
-    };
-    fetchReviews();
+      };
+      fetchReviews();
+    } else {
+      delayPromise.then(() => {
+        setLoadingReviews(false);
+      });
+    }
   }, []);
 
   // Slide reviews auto play
@@ -144,7 +155,24 @@ export default function Reviews() {
           <h3 className="sub-title">Client Reviews</h3>
 
           <div className="testimonial-wrapper">
-            {reviews.length > 0 ? (
+            {loadingReviews ? (
+              <div className="hp-loader">
+                <div className="snitch-container">
+                  <div className="snitch-wing left"></div>
+                  <div className="snitch-body">
+                    <div className="snitch-details"></div>
+                  </div>
+                  <div className="snitch-wing right"></div>
+                  <div className="spell-sparkle s1"></div>
+                  <div className="spell-sparkle s2"></div>
+                  <div className="spell-sparkle s3"></div>
+                </div>
+                <div className="spell-text">Casting Revelio...</div>
+                <div className="spell-progress">
+                  <div className="spell-progress-bar"></div>
+                </div>
+              </div>
+            ) : reviews.length > 0 ? (
               reviews.map((r, idx) => (
                 <div
                   key={idx}
@@ -160,7 +188,9 @@ export default function Reviews() {
                   <p className="testimonial-comment">"{r.comment}"</p>
                   <div className="testimonial-author">
                     <div className="author-name">{r.name}</div>
-                    <div className="author-role">{r.role}</div>
+                    <div className="author-role">
+                      {r.role === "Owner" || r.role === "Portfolio Owner" ? "Developer" : r.role}
+                    </div>
                   </div>
                 </div>
               ))
@@ -185,12 +215,14 @@ export default function Reviews() {
           </div>
 
           <div className="reviews-actions">
-            <button className="btn-primary" onClick={() => setShowModal(true)}>
-              Write a Review
-            </button>
+            {!loadingReviews && (
+              <button className="btn-primary" onClick={() => setShowModal(true)}>
+                Write a Review
+              </button>
+            )}
 
             {/* Slider Dots */}
-            {reviews.length > 1 && (
+            {!loadingReviews && reviews.length > 1 && (
               <div className="slider-dots">
                 {reviews.map((_, i) => (
                   <button

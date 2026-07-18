@@ -297,3 +297,188 @@
     padding: 24px;
   }
 }
+
+/* Harry Potter themed loading animation */
+.hp-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 250px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.snitch-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: snitch-hover 2s ease-in-out infinite;
+}
+
+.snitch-body {
+  width: 24px;
+  height: 24px;
+  background: radial-gradient(circle at 30% 30%, #ffe066, #d4af37, #996515);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.8), inset -2px -2px 5px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.snitch-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  transform: rotate(45deg);
+}
+
+.snitch-wing {
+  position: absolute;
+  width: 45px;
+  height: 15px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(212, 175, 55, 0.3));
+  border-radius: 50% 50% 0 0;
+  top: 32px;
+  opacity: 0.8;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.snitch-wing.left {
+  left: -15px;
+  transform-origin: right center;
+  animation: wing-flap-left 0.15s linear infinite alternate;
+}
+
+.snitch-wing.right {
+  right: -15px;
+  transform-origin: left center;
+  animation: wing-flap-right 0.15s linear infinite alternate;
+}
+
+.spell-sparkle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffe066;
+  opacity: 0;
+}
+
+.spell-sparkle.s1 {
+  top: 10px;
+  left: 20px;
+  animation: sparkle-float 1.8s ease-in-out infinite;
+}
+
+.spell-sparkle.s2 {
+  bottom: 15px;
+  right: 15px;
+  animation: sparkle-float 2.2s ease-in-out infinite 0.4s;
+}
+
+.spell-sparkle.s3 {
+  top: 50px;
+  right: 45px;
+  animation: sparkle-float 2s ease-in-out infinite 0.8s;
+}
+
+.spell-text {
+  margin-top: 20px;
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--accent-2);
+  text-shadow: 0 0 8px rgba(238, 186, 48, 0.6);
+  letter-spacing: 2px;
+  animation: text-pulse 1.5s ease-in-out infinite alternate;
+}
+
+.spell-progress {
+  width: 150px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.spell-progress-bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-2), #fff, var(--accent-2));
+  animation: spell-charge 5s linear forwards;
+  transform-origin: left center;
+}
+
+/* Animations */
+@keyframes snitch-hover {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.03);
+  }
+}
+
+@keyframes wing-flap-left {
+  0% {
+    transform: rotate(20deg) skewY(-10deg);
+  }
+  100% {
+    transform: rotate(-40deg) skewY(20deg);
+  }
+}
+
+@keyframes wing-flap-right {
+  0% {
+    transform: rotate(-20deg) skewY(10deg);
+  }
+  100% {
+    transform: rotate(40deg) skewY(-20deg);
+  }
+}
+
+@keyframes sparkle-float {
+  0% {
+    transform: translate(0, 0) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(15px, -20px) scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes text-pulse {
+  0% {
+    opacity: 0.6;
+    text-shadow: 0 0 5px rgba(238, 186, 48, 0.3);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 12px rgba(238, 186, 48, 0.8);
+  }
+}
+
+@keyframes spell-charge {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
