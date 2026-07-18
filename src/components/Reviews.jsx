@@ -3,7 +3,7 @@ import Sparkles from "./Sparkles";
 import "./Reviews.css";
 
 // Configure your Google Sheets Web App URL or Supabase REST URL here:
-const REVIEWS_API_URL = ""; 
+const REVIEWS_API_URL = "https://script.google.com/macros/s/AKfycbwHC7io6RU5ipdY6n7CpTXt6Ls0BnfroQt2pEFI3IPp_VbjVjIs0HIwF241wPdlFnNl/exec";
 
 const initialReviews = [
   {
@@ -105,10 +105,11 @@ export default function Reviews() {
       try {
         const fd = new FormData();
         Object.entries(form).forEach(([k, v]) => fd.append(k, v));
-        
+
         await fetch(REVIEWS_API_URL, {
           method: "POST",
           body: fd,
+          mode: "no-cors",
         });
 
         setMsg("✓ Review submitted successfully! It will appear once approved.");
@@ -161,7 +162,7 @@ export default function Reviews() {
         {/* Reviews Slider section */}
         <div className="reviews-slider glass-card">
           <h3 className="sub-title">Client Reviews</h3>
-          
+
           <div className="testimonial-wrapper">
             {reviews.map((r, idx) => (
               <div
@@ -188,7 +189,7 @@ export default function Reviews() {
             <button className="btn-primary" onClick={() => setShowModal(true)}>
               Write a Review
             </button>
-            
+
             {/* Slider Dots */}
             {reviews.length > 1 && (
               <div className="slider-dots">
