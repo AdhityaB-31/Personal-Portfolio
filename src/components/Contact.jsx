@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Sparkles from "./Sparkles";
 import "./Contact.css";
+import resumePdf from "../assets/Documents/B_Adhitya-Resume.pdf";
 
 const SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxgzdYOuH7cq7n0S2hN43fZ4bSdnni0X1EgGEH5QEUTJG67vg8M_NolyolDrqfbSMSI/exec";
@@ -108,7 +109,7 @@ export default function Contact() {
             ))}
           </div>
 
-          <a href="/Public/Documents/B_Adhitya-Resume.pdf" download className="btn-primary" style={{ marginTop: 8 }}>
+          <a href={resumePdf} download className="btn-primary" style={{ marginTop: 8 }}>
             Download CV ↓
           </a>
         </div>

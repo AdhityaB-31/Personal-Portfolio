@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Navbar.css";
 
-const navLinks = ["home", "about", "services", "portfolio", "contact"];
+const navLinks = ["home", "about", "services", "portfolio", "reviews", "contact"];
 
 export default function Navbar({ dark, setDark }) {
   const [scrolled, setScrolled] = useState(false);

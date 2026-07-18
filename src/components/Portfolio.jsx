@@ -2,7 +2,9 @@ import { useState, useEffect, useCallback } from "react";
 import Sparkles from "./Sparkles";
 import "./Portfolio.css";
 
-const projects = [
+const projectImages = import.meta.glob("../assets/Images/Project-Work/**/*.{png,jpg,jpeg,svg}", { eager: true });
+
+const projectsRaw = [
   {
     tag: "Full-Stack (Spring Boot + React)",
     title: "FastX",
@@ -89,6 +91,14 @@ const projects = [
     ],
   },
 ];
+
+const projects = projectsRaw.map((p) => ({
+  ...p,
+  images: p.images.map((img) => {
+    const key = img.replace("/Public/", "../assets/");
+    return projectImages[key]?.default || img;
+  }),
+}));
 
 /* ── Image Slider sub-component ── */
 function ImageSlider({ images, title }) {

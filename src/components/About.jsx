@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Sparkles from "./Sparkles";
 import "./About.css";
+import adhityaImage from "../assets/Images/Adhitya_Image.png";
+
+const certDocs = import.meta.glob("../assets/Documents/*.pdf", { eager: true });
 
 const skills = [
   { name: "React", pct: 70 },
@@ -54,12 +57,12 @@ export default function About() {
         {/* Image / Illustration column */}
         <div className="about-img-col">
           <div className="about-img-frame">
-            <img src="/Public/Images/Adhitya_Image.png" alt="Adhitya" />
+            <img src={adhityaImage} alt="Adhitya" />
             <div className="img-accent-bar" />
             <div className="about-img-badge">
               <span className="badge-dot" />
               <div>
-                <div className="badge-main">Open to Opportunities</div>
+                <div className="badge-main">Available for Freelance Work</div>
                 <div className="badge-sub">Jobs &amp; Freelance</div>
               </div>
             </div>
@@ -140,7 +143,7 @@ export default function About() {
                     <div className="cert-issuer">{c.issuer}</div>
                   </div>
                   <a
-                    href={`/Public/Documents/${c.file}`}
+                    href={certDocs[`../assets/Documents/${c.file}`]?.default || "#"}
                     download
                     className="cert-download"
                   >

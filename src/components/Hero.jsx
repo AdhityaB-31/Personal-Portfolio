@@ -37,16 +37,24 @@ function useTyping(words, speed = 100, pause = 1500) {
   return display;
 }
 
+const heroImagesGlob = import.meta.glob("../assets/Images/Hero-Section-Images/*.{png,jpg,jpeg,svg}", { eager: true });
 const heroImages = [
-  "/Public/Images/Hero-Section-Images/harry_potter.png",
-  "/Public/Images/Hero-Section-Images/hermione_granger.png",
-  "/Public/Images/Hero-Section-Images/hogwarts_trio.png",
-  "/Public/Images/Hero-Section-Images/freelance_workspace.png",
-  "/Public/Images/Hero-Section-Images/freelance_dashboard.png"
+  heroImagesGlob["../assets/Images/Hero-Section-Images/harry_potter.png"]?.default,
+  heroImagesGlob["../assets/Images/Hero-Section-Images/hermione_granger.png"]?.default,
+  heroImagesGlob["../assets/Images/Hero-Section-Images/hogwarts_trio.png"]?.default,
+  heroImagesGlob["../assets/Images/Hero-Section-Images/freelance_workspace.png"]?.default,
+  heroImagesGlob["../assets/Images/Hero-Section-Images/freelance_dashboard.png"]?.default,
 ];
 
 export default function Hero() {
-  const typed = useTyping(["Freelance Web Developer", "Software Developer", "Technical Tutor"]);
+  const typed = useTyping([
+    "Full Stack Developer",
+    "Java Spring Boot Developer",
+    "React Developer",
+    "Freelance Software Developer",
+    "Freelance Web Developer",
+    "Technical Tutor"
+  ]);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
