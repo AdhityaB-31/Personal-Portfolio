@@ -367,29 +367,34 @@
 
 .spell-sparkle {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #fff;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  box-shadow: 0 0 8px #ffe066;
   opacity: 0;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
 }
 
 .spell-sparkle.s1 {
   top: 10px;
   left: 20px;
+  background: var(--sparkle-gold-bg);
+  box-shadow: var(--sparkle-gold-glow);
   animation: sparkle-float 1.8s ease-in-out infinite;
 }
 
 .spell-sparkle.s2 {
   bottom: 15px;
   right: 15px;
+  background: var(--sparkle-crimson-bg);
+  box-shadow: var(--sparkle-crimson-glow);
   animation: sparkle-float 2.2s ease-in-out infinite 0.4s;
 }
 
 .spell-sparkle.s3 {
   top: 50px;
   right: 45px;
+  background: var(--sparkle-violet-bg);
+  box-shadow: var(--sparkle-violet-glow);
   animation: sparkle-float 2s ease-in-out infinite 0.8s;
 }
 
